@@ -1,13 +1,13 @@
 import React from 'react';
 
-export default function clientSide({accessKeySTS, secretKeySTS, sessionSTS}){
+export default function ClientSide({accessKeySTS, secretKeySTS, sessionSTS}){
 
 const fs = require('fs');
 const AWS = require('aws-sdk');
 const body = fs.createReadStream('./helloworld.txt');
 
 AWS.config.update({
-    region:'us-east-1',
+    region:'eu-west-1',
     accessKeyId: accessKeySTS,
     secrteAccessKey: secretKeySTS,
     sessionToken: sessionSTS,
@@ -31,6 +31,7 @@ s3.putObject(params, (err,data) =>{
     }
 });
 return(
-<h4>Should out put data to s3</h4>
+
+<h4>Should output data to s3</h4>
 );
 }

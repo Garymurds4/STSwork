@@ -1,12 +1,14 @@
-import React, {useState} from 'react';
-import clientSide from './clientSide';
-
+import React from 'react';
+//import React, {useState} from 'react';
+//import ClientSide from './clientSide';
+ 
     
 
-            export default function sessionToken() {
-                const [accessKeySTS, setAccessKeySTS] = useState();
-                const [secretKeySTS, setSecretKeySTS] = useState();
-                const [sessionSTS, setSessionSTS] = useState();
+            export default function SessionToken() {
+                //const [accessKeySTS, setAccessKeySTS] = useState();
+                //const [secretKeySTS, setSecretKeySTS] = useState();
+                //const [sessionSTS, setSessionSTS] = useState();
+                
                 var AWS = require('aws-sdk');
                 const sts = new AWS.STS({apiVersion: '2011-06-15'});     
                 const userId = 123;
@@ -23,22 +25,23 @@ import clientSide from './clientSide';
                                 "s3:GetObject"
                             ],
                             "Resource": [
-                                "arn:aws:s3:::XXXXXXXXXX/${userId}/*"
+                                "arn:aws:s3:::gary-sts-test/${userId}/*"
                             ]
                         }
                     ]
                 }`;
                 
                 const role = {
-                    RoleArn: 'arn:aws:iam::XXXXXXXXXX:role/webClientRole',
+                    RoleArn: 'arn:aws:iam::443659653240:role/clientRoleWeb',
                     Policy: myBucketPolicy,
-                    RoleSessionName: 'webClientRole',
+                    RoleSessionName: 'clientRoleWeb',
                     DurationSeconds: 3600 //1 hour
                 };
                 
                 sts.assumeRole(role, (err, data) => {
                     if (err) {
-                        console.log(err.message);
+                        console.log("hello");
+                        console.log("Getting error: ",err.message);
                         return
                     }
                     console.log({
@@ -46,14 +49,16 @@ import clientSide from './clientSide';
                         secretAccessKey: data.Credentials.SecretAccessKey,
                         sessionToken: data.Credentials.SessionToken
                     });
-                    setAccessKeySTS(data.Credentials.AccessKeyId);
-                    setSecretKeySTS(data.Credentials.SecretAccessKey);
-                    setSessionSTS(data.Credentials.SessionToken);
+                    //setAccessKeySTS(data.Credentials.AccessKeyId);
+                    //setSecretKeySTS(data.Credentials.SecretAccessKey);
+                    //setSessionSTS(data.Credentials.SessionToken);
                 });
 
                 return(
-                <clientSide accessKeySTS={accessKeySTS} secretKeySTS={secretKeySTS} sessionSTS={sessionSTS} />
-                
+                <div>  
+                    <h4>Session Token</h4>   
+                            
+               </div> 
                 ); 
             }
-
+// <clientSide accessKeySTS={accessKeySTS} secretKeySTS={secretKeySTS} sessionSTS={sessionSTS} />

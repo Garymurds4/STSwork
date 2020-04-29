@@ -1,10 +1,10 @@
 import './App.css';
 import React from 'react';
-import sessionToken from "./sessionToken";
+import SessionToken from "./sessionToken";
 
 function App() {
   return(
-<sessionToken />
+<SessionToken />
   );
 }
 
