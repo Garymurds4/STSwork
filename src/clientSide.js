@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function clientSide({accessKeySTS, secretKeySTS, sessionSTS}){
+export default function ClientSide({accessKeySTS, secretKeySTS, sessionSTS}){
 
 const fs = require('fs');
 const AWS = require('aws-sdk');
