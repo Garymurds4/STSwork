@@ -1,7 +1,10 @@
-const msalConfig = {
+ 
+  import * as Msal from 'msal';
+  // Config object to be passed to Msal on creation
+  const msalConfig = {
     auth: {
-      clientId: "75d84e7a-40bx-f0a2-91b9-0c82d4c556aa", // this is a fake id
-      authority: "https://login.microsoftonline.com/common",
+      clientId: "0ab84c67-0f9f-4248-a1b8-a9ef77c2d464", // this is a fake id
+      authority: "https://login.microsoftonline.com/al.co.za",
       redirectUri: "http://localhost:3000/",
     },
     cache: {
@@ -9,3 +12,5 @@ const msalConfig = {
       storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
     }
   };  
+
+export const myMSALObj = new Msal.UserAgentApplication(msalConfig);

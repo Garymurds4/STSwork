@@ -1,9 +1,10 @@
 import React from 'react';
-
+import AWS from 'aws-sdk'
+import  fs from 'fs';
 export default function ClientSide({accessKeySTS, secretKeySTS, sessionSTS}){
 
-const fs = require('fs');
-const AWS = require('aws-sdk');
+
+
 const body = fs.createReadStream('./helloworld.txt');
 
 AWS.config.update({
