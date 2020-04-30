@@ -5,7 +5,7 @@ import {myMSALObj} from "./Auth/MSALconfig"
 
 function App() {
   const login=()=>{
-    myMSALObj.
+   
     const loginRequest = {
     scopes: ["openid", "profile", "User.Read"],
 };
