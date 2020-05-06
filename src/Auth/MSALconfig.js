@@ -1,7 +1,7 @@
  
   import * as Msal from 'msal';
   // Config object to be passed to Msal on creation
-  const msalConfig = {
+   const msalConfig = {
     auth: {
       clientId: "0ab84c67-0f9f-4248-a1b8-a9ef77c2d464", // this is a fake id
       authority: "https://login.microsoftonline.com/al.co.za",

@@ -1,7 +1,7 @@
 import "./App.css";
 import React from "react";
 import SessionToken from "./sessionToken";
-import {myMSALObj} from "./Auth/MSALconfig"
+import {myMSALObj} from "./Auth/MSALconfig";
 
 function App() {
   const login=()=>{
@@ -18,10 +18,10 @@ myMSALObj.loginPopup(loginRequest)
 });
   }
   return (
-    <>
+    <div>
     <button onClick={login}>Login</button>
       <SessionToken />
-    </>
+    </div>
   );
 }
 
