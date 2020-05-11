@@ -35,7 +35,7 @@ export default function SessionToken() {
     RoleSessionName: "clientRoleWeb",
     DurationSeconds: 3600, //1 hour
   };
-  sts.assumeRoleWithSAML()
+  
   sts.assumeRole(role, (err, data) => {
     console.log(sts)
     console.log(data);
